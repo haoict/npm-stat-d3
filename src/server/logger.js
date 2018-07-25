@@ -5,7 +5,7 @@ const {
   transports: { Console, File }
 } = require('winston');
 
-const LOG_FILE_NAME = '.application.log';
+const LOG_FILE_NAME = '.app.log';
 const LOG_FILE_PATH =
   process.env.NODE_ENV === 'production'
     ? path.join(homedir(), LOG_FILE_NAME)

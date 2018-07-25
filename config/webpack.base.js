@@ -1,11 +1,14 @@
 const { resolve, join } = require('path');
 
+const clientPath = join(process.cwd(), 'src', 'client');
+const buildPath = join(process.cwd(), 'build', 'client');
+
 module.exports = {
   target: 'web',
-  entry: ['babel-polyfill', './src/client/index.js'],
+  entry: ['babel-polyfill', `${clientPath}/index.js`],
   output: {
     publicPath: '/',
-    path: resolve(__dirname, '..', 'build', 'client'),
+    path: resolve(buildPath, 'client'),
     filename: '[name].js'
   },
   module: {
@@ -18,7 +21,16 @@ module.exports = {
     ]
   },
   resolve: {
-    modules: ['node_modules', join('src', 'client')]
+    modules: ['node_modules', clientPath],
+    alias: {
+      actions: join(clientPath, 'actions'),
+      components: join(clientPath, 'components'),
+      config: join(clientPath, 'config'),
+      constants: join(clientPath, 'constants'),
+      containers: join(clientPath, 'containers'),
+      reducers: join(clientPath, 'reducers'),
+      selectors: join(clientPath, 'selectors')
+    }
   },
   optimization: {
     splitChunks: {

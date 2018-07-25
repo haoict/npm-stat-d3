@@ -64,7 +64,6 @@
     "apollo-client": "^2.3.7",
     "apollo-link": "^1.2.2",
     "axios": "^0.18.0",
-    "body-parser": "1.18.2",
     "compression": "1.7.2",
     "cross-env": "5.1.5",
     "express": "4.16.3",
@@ -74,6 +73,8 @@
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.1",
+    "recompose": "^0.27.1",
+    "reselect": "^3.0.1",
     "winston": "2.4.2"
   }
 }

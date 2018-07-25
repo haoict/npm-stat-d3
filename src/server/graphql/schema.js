@@ -26,7 +26,7 @@ const query = new GraphQLObjectType({
       type: GraphQLList(CountType),
       args: {
         packages: { type: GraphQLList(GraphQLString) },
-        dates: { type: GraphQLString }
+        date: { type: GraphQLString }
       },
       resolve(parentValue, { packages, dates }) {
         return axios

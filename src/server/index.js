@@ -1,6 +1,5 @@
 const http = require('http');
 const express = require('express');
-const bodyParser = require('body-parser');
 const expressGraphQL = require('express-graphql');
 const logger = require('./logger');
 const schema = require('./graphql/schema');
@@ -33,6 +32,7 @@ const app = express();
 app.set('env', process.env.NODE_ENV);
 logger.info(`Application env: ${process.env.NODE_ENV}`);
 
+// Set graphql router
 app.use(
   '/graphql',
   expressGraphQL({
@@ -47,12 +47,13 @@ app.use(
   })
 );
 
+// Logger
 app.use(logger.expressMiddleware);
-app.use(bodyParser.json());
 
-// application routes
+// Middlewares
 applyMiddlewares(app);
 
+// Start server
 http.createServer(app).listen(process.env.HTTP_PORT, () => {
   logger.info(`Web server is now running on http://localhost:${process.env.HTTP_PORT}`);
 });

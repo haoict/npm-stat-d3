@@ -7,7 +7,7 @@ import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 import { isEmpty } from 'lodash';
 
-export const generateProvider = (childrenComponent, store) => {
+export default (Component, store) => {
   const link = ApolloLink.from([
     new HttpLink({
       uri: '/graphql',
@@ -25,7 +25,7 @@ export const generateProvider = (childrenComponent, store) => {
         })
       }
     >
-      {isEmpty(store) ? <Provider store={store}>{childrenComponent}</Provider> : childrenComponent}
+      {isEmpty(store) ? <Provider store={store}>{Component}</Provider> : Component}
     </ApolloProvider>
   );
 };
