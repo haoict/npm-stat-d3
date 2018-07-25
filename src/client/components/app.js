@@ -1,3 +1,8 @@
 import React from 'react';
+import { Section, Container } from 'components/styledComponents';
 
-export default () => <div>Hello world</div>;
+export default () => (
+  <Section>
+    <Container isFluid>Hello world</Container>
+  </Section>
+);

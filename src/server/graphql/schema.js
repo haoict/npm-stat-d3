@@ -28,9 +28,9 @@ const query = new GraphQLObjectType({
         packages: { type: GraphQLList(GraphQLString) },
         date: { type: GraphQLString }
       },
-      resolve(parentValue, { packages, dates }) {
+      resolve(parentValue, { packages, date }) {
         return axios
-          .get(`${countEndpoint}/${dates}/${packages.join(',')}`)
+          .get(`${countEndpoint}/${date}/${packages.join(',')}`)
           .then(res => mapCountData(res.data))
           .catch(err => {
             throw new Error(err);
