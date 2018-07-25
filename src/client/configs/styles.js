@@ -68,6 +68,12 @@ export const globalStyles = `
     overflow-y: scroll;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
+    padding: 0;
+    margin: 0;
+
+    * {
+      box-sizing: border-box;
+    }
   }
 
   ${normalize()}

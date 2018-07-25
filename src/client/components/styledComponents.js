@@ -38,3 +38,14 @@ export const Container = styled(({ isFluid, children, ...rest }) => (
     max-width: 1344px;
   `};
 `;
+
+export const Svg = styled(({ size, color, children, ...rest }) => <svg {...rest}>{children}</svg>)`
+  display: inline-block;
+  height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
+  vertical-align: middle;
+
+  path {
+    fill: ${({ color }) => color};
+  }
+`;
