@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media, spacing, colors, fontWeight } from 'configs/styles';
+import { media, spacing, colors, fontWeight, fontSizes } from 'configs/styles';
 import { Link } from 'react-router-dom';
 
 export const Section = styled.section`
@@ -63,6 +63,32 @@ export const HeaderLink = styled(Link)`
   h2 {
     color: ${colors.orange};
     margin: 0;
-    font-weight: ${fontWeight.semibold};
+    font-size: ${fontSizes.size2};
+    font-weight: ${fontWeight.light};
   }
+`;
+
+export const Form = styled.form`
+  position: relative;
+  width: 100%;
+`;
+
+export const FormInput = styled.input`
+  padding: ${spacing.medium} 0;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid ${colors.orange};
+  font-size: ${fontSizes.size5};
+  font-weight: ${fontWeight.light};
+
+  &:focus {
+    outline: 0;
+  }
+`;
+
+export const FormHeader = styled.h3`
+  margin: 0;
+  font-size: ${fontSizes.size3};
+  font-weight: ${fontWeight.light};
+  margin-bottom: ${spacing.big};
 `;

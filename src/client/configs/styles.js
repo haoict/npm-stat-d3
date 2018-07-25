@@ -38,7 +38,7 @@ export const colors = {
   cyan: '#44d9cd'
 };
 
-export const sizes = {
+export const fontSizes = {
   base: '1rem',
   size1: '3.5rem',
   size2: '2.75rem',

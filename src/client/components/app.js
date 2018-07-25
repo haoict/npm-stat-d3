@@ -1,8 +1,9 @@
 import React from 'react';
-import { Section, Container } from 'components/styledComponents';
+import { Section } from 'components/styledComponents';
+import SearchForm from 'containers/searchForm';
 
 export default () => (
   <Section>
-    <Container>Hello world</Container>
+    <SearchForm />
   </Section>
 );

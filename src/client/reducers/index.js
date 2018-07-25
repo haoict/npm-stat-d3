@@ -1,21 +1,19 @@
 import { combineReducers } from 'redux';
-import { UPDATE_QUERY_PARAMS } from 'configs/actionTypes';
+import { UPDATE_PACKAGES } from 'configs/actionTypes';
 
 const initialState = {
-  queryParams: {
-    packages: [],
-    dates: ''
-  }
+  packages: [],
+  date: ''
 };
 
 const root = (state = initialState, action) => {
-  const { type, queryParams } = action;
+  const { type, packages } = action;
 
   switch (type) {
-    case UPDATE_QUERY_PARAMS: {
+    case UPDATE_PACKAGES: {
       return {
         ...state,
-        queryParams
+        packages
       };
     }
 

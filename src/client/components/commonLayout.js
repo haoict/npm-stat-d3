@@ -14,8 +14,8 @@ const CommonLayout = ({ component: Component, ...rest }) => (
         <Section>
           <Container>
             <HeaderLink to="/">
-              <Icon name="logo" size={32} color={colors.orange} />
-              <h2>NPM compare</h2>
+              <Icon name="logo" size={40} color={colors.orange} />
+              <h2>NpmStatus</h2>
             </HeaderLink>
           </Container>
         </Section>
