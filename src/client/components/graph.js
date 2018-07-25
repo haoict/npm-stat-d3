@@ -8,49 +8,45 @@ const Chart = ({ data }) => (
       data={data}
       margin={{
         top: 50,
-        right: 110,
+        right: 200,
         bottom: 50,
-        left: 60
+        left: 100
       }}
       minY="auto"
       stacked
       axisBottom={{
         orient: 'bottom',
-        tickSize: 5,
+        tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'country code',
-        legendOffset: 36,
+        legend: 'Package name',
+        legendOffset: 50,
         legendPosition: 'center'
       }}
       axisLeft={{
         orient: 'left',
-        tickSize: 5,
+        tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'count',
-        legendOffset: -40,
+        legend: 'Downloads',
+        legendOffset: -80,
         legendPosition: 'center'
       }}
-      dotSize={10}
       dotColor="inherit:darker(0.3)"
       dotBorderWidth={2}
       dotBorderColor="#ffffff"
-      enableDotLabel
-      dotLabel="y"
-      dotLabelYOffset={-12}
       animate
       motionStiffness={90}
       motionDamping={15}
       legends={[
         {
-          anchor: 'bottom-right',
+          anchor: 'top-right',
           direction: 'column',
           translateX: 100,
           itemWidth: 80,
           itemHeight: 20,
           symbolSize: 12,
-          symbolShape: 'circle'
+          symbolShape: 'square'
         }
       ]}
     />

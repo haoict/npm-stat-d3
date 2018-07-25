@@ -94,6 +94,7 @@ export const FormHeader = styled.h3`
 `;
 
 export const ChartContainer = styled(Container)`
+  margin-top: ${spacing.large};
   height: 600px;
   width: 100%;
 `;
