@@ -5,7 +5,6 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
-import { isEmpty } from 'lodash';
 
 export default (Component, store) => {
   const link = ApolloLink.from([
@@ -25,7 +24,7 @@ export default (Component, store) => {
         })
       }
     >
-      {isEmpty(store) ? <Provider store={store}>{Component}</Provider> : Component}
+      <Provider store={store}>{Component}</Provider>
     </ApolloProvider>
   );
 };
