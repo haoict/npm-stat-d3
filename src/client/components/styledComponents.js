@@ -92,3 +92,8 @@ export const FormHeader = styled.h3`
   font-weight: ${fontWeight.light};
   margin-bottom: ${spacing.big};
 `;
+
+export const ChartContainer = styled(Container)`
+  height: 600px;
+  width: 100%;
+`;

@@ -33,6 +33,12 @@ const mapPackageData = data => {
   });
 };
 
+const mapDownload = data =>
+  map(data, ({ day, downloads }) => ({
+    x: day,
+    y: downloads
+  }));
+
 const mapCountData = data => {
   if (isEmpty(data) || (!isArray(data) && !isObject(data))) {
     return [];
@@ -41,15 +47,15 @@ const mapCountData = data => {
   if (isObject(data)) {
     return [
       {
-        name: data.package,
-        downloads: data.downloads
+        id: data.package,
+        data: mapDownload(data.downloads)
       }
     ];
   }
 
   return map(data, (value, key) => ({
-    name: key,
-    ...value
+    id: key,
+    data: mapDownload(value.downloads)
   }));
 };
 

@@ -23,16 +23,16 @@ const InfoType = new GraphQLObjectType({
 const DownloadType = new GraphQLObjectType({
   name: 'DownloadType',
   fields: () => ({
-    downloads: { type: GraphQLInt },
-    day: { type: GraphQLString }
+    x: { type: GraphQLString },
+    y: { type: GraphQLInt }
   })
 });
 
 const CountType = new GraphQLObjectType({
   name: 'CountType',
   fields: () => ({
-    name: { type: GraphQLString },
-    downloads: { type: GraphQLList(DownloadType) }
+    id: { type: GraphQLString },
+    data: { type: GraphQLList(DownloadType) }
   })
 });
 
