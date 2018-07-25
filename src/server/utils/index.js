@@ -1,4 +1,4 @@
-const { map, isEmpty } = require('lodash');
+const { map, isEmpty, isArray, isObject } = require('lodash');
 
 const mapPackageData = data => {
   if (isEmpty(data)) return [];
@@ -34,7 +34,18 @@ const mapPackageData = data => {
 };
 
 const mapCountData = data => {
-  if (isEmpty(data)) return [];
+  if (isEmpty(data) || (!isArray(data) && !isObject(data))) {
+    return [];
+  }
+
+  if (isObject(data)) {
+    return [
+      {
+        name: data.package,
+        downloads: data.downloads
+      }
+    ];
+  }
 
   return map(data, (value, key) => ({
     name: key,
