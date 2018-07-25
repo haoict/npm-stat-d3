@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media, spacing } from 'configs/styles';
+import { media, spacing, colors, fontWeight } from 'configs/styles';
+import { Link } from 'react-router-dom';
 
 export const Section = styled.section`
   padding: ${spacing.large} ${spacing.big};
@@ -47,5 +48,21 @@ export const Svg = styled(({ size, color, children, ...rest }) => <svg {...rest}
 
   path {
     fill: ${({ color }) => color};
+  }
+`;
+
+export const HeaderLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  svg {
+    margin-right: ${spacing.small};
+  }
+
+  h2 {
+    color: ${colors.orange};
+    margin: 0;
+    font-weight: ${fontWeight.semibold};
   }
 `;

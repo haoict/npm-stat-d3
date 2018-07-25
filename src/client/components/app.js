@@ -3,6 +3,6 @@ import { Section, Container } from 'components/styledComponents';
 
 export default () => (
   <Section>
-    <Container isFluid>Hello world</Container>
+    <Container>Hello world</Container>
   </Section>
 );
