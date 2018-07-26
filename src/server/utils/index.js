@@ -1,4 +1,4 @@
-const { map, isEmpty, isArray, isObject } = require('lodash');
+const { map, isEmpty, isArray, isObject, forEach } = require('lodash');
 const axios = require('axios');
 const { format, subMonths } = require('date-fns');
 const { packageEndpoint, countEndpoint } = require('../config/api');
@@ -54,10 +54,9 @@ const dataByMonth = data => {
     'Nov',
     'Dec'
   ];
-
   const months = {};
 
-  data.forEach(({ day, downloads }) =>  {
+  forEach(data, ({ day, downloads }) => {
     const newDate = new Date(day);
     const month = monthNames[newDate.getMonth()];
     const year = `${newDate.getFullYear()}`.slice(-2);
