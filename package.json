@@ -59,7 +59,8 @@
       "^selectors(.*)$": "<rootDir>/src/client/selectors$1",
       "^containers(.*)$": "<rootDir>/src/client/containers$1",
       "^stores(.*)$": "<rootDir>/src/client/stores$1",
-      "^actions(.*)$": "<rootDir>/src/client/actions$1"
+      "^actions(.*)$": "<rootDir>/src/client/actions$1",
+      "^graphqlData(.*)$": "<rootDir>/src/client/graphqlData$1"
     },
     "testMatch": [
       "<rootDir>/tests/**/*.test.js"
@@ -99,6 +100,7 @@
     "prettier": "1.12.1",
     "react-hot-loader": "^4.3.4",
     "redux-logger": "3.0.6",
+    "redux-mock-store": "^1.5.3",
     "rimraf": "2.6.2",
     "uglifyjs-webpack-plugin": "1.2.5",
     "webpack": "^4.16.2",
