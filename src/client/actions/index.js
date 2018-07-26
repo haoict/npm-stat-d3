@@ -13,7 +13,7 @@ export const updatePackage = npmPackage => (dispatch, getState) => {
   dispatch(updatePackages(newPackages));
 };
 
-export const updateDate = months => ({
+export const updateMonths = months => ({
   type: UPDATE_MONTHS,
   months
 });

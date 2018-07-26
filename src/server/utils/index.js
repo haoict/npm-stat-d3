@@ -91,7 +91,8 @@ const mapCountData = (data, months) => {
     return [];
   }
 
-  if (isObject(data)) {
+  // When data have only one key
+  if (Object.keys(data).length < 2) {
     return [
       {
         id: data.package,

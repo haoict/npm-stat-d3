@@ -1,12 +1,12 @@
 import gql from 'graphql-tag';
 
 export const GRAPH_DATA_QUERY = gql`
-  query getGraphData($packages: [String], $date: String) {
-    count(packages: $packages, date: $date) {
-      name
-      downloads {
-        downloads
-        day
+  query getGraphData($packages: [String], $months: Int) {
+    count(packages: $packages, months: $months) {
+      id
+      data {
+        x
+        y
       }
     }
   }

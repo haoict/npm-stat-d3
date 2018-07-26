@@ -1,8 +1,11 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { ChartContainer } from 'components/styledComponents';
+import { compose, pure } from 'recompose';
+import { isEmpty } from 'lodash';
+import { noRender } from 'utils';
 
-const Chart = ({ data }) => (
+const Graph = ({ data }) => (
   <ChartContainer>
     <ResponsiveLine
       data={data}
@@ -53,4 +56,4 @@ const Chart = ({ data }) => (
   </ChartContainer>
 );
 
-export default Chart;
+export default compose(noRender(({ data }) => isEmpty(data)), pure)(Graph);
