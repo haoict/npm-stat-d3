@@ -62,10 +62,15 @@ export const HeaderLink = styled(Link)`
 
   h2 {
     color: ${colors.orange};
-    margin: 0;
+    margin: 0 ${spacing.medium} 0;
     font-size: ${fontSizes.size2};
     font-weight: ${fontWeight.light};
   }
+`;
+
+export const HeaderNote = styled.span`
+  font-size: ${fontSizes.size6};
+  color: ${colors.dark};
 `;
 
 export const Form = styled.form`
