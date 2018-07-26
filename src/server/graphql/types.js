@@ -32,6 +32,7 @@ const CountType = new GraphQLObjectType({
   name: 'CountType',
   fields: () => ({
     id: { type: GraphQLString },
+    color: { type: GraphQLString },
     data: { type: GraphQLList(DownloadType) }
   })
 });

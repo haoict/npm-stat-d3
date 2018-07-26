@@ -98,7 +98,7 @@ export const FormHeader = styled.h3`
   margin-bottom: ${spacing.big};
 `;
 
-export const ChartContainer = styled(Container)`
+export const GraphContainer = styled(Container)`
   margin-top: ${spacing.large};
   height: 600px;
   width: 100%;

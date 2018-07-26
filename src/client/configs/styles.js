@@ -21,7 +21,7 @@ export const spacing = {
 };
 
 export const colors = {
-  white: ' #fff',
+  white: '#fff',
   dark: '#484848',
   gray: '#bec4c8',
   blue: '#4a9eda',
@@ -37,6 +37,21 @@ export const colors = {
   teal: '#46da84',
   cyan: '#44d9cd'
 };
+
+export const graphColors = [
+  '#44d9cd',
+  '#4a9eda',
+  '#6872e0',
+  '#9966e0',
+  '#d665e0',
+  '#e066ad',
+  '#e16973',
+  '#da864a',
+  '#d7c938',
+  '#96d73b',
+  '#54da48',
+  '#46da84'
+];
 
 export const fontSizes = {
   base: '1rem',

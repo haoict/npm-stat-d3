@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
-import { ChartContainer } from 'components/styledComponents';
-import { compose, pure } from 'recompose';
+import { GraphContainer } from 'components/styledComponents';
+import { compose, pure, setPropTypes } from 'recompose';
 import { isEmpty } from 'lodash';
 import { noRender } from 'utils';
 
 const Graph = ({ data }) => (
-  <ChartContainer>
+  <GraphContainer>
     <ResponsiveLine
       data={data}
       margin={{
@@ -53,7 +54,13 @@ const Graph = ({ data }) => (
         }
       ]}
     />
-  </ChartContainer>
+  </GraphContainer>
 );
 
-export default compose(noRender(({ data }) => isEmpty(data)), pure)(Graph);
+export default compose(
+  setPropTypes({
+    data: PropTypes.array
+  }),
+  noRender(({ data }) => isEmpty(data)),
+  pure
+)(Graph);
