@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import { UPDATE_PACKAGES, UPDATE_DATE } from 'configs/actionTypes';
+import { UPDATE_PACKAGES, UPDATE_MONTHS } from 'configs/actionTypes';
 
 const initialState = {
   packages: [],
-  date: ''
+  months: 1
 };
 
 const root = (state = initialState, action) => {
-  const { type, packages, date } = action;
+  const { type, packages, months } = action;
 
   switch (type) {
     case UPDATE_PACKAGES: {
@@ -17,10 +17,10 @@ const root = (state = initialState, action) => {
       };
     }
 
-    case UPDATE_DATE: {
+    case UPDATE_MONTHS: {
       return {
         ...state,
-        date
+        months
       };
     }
 

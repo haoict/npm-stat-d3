@@ -1,2 +1,2 @@
 export const UPDATE_PACKAGES = 'UPDATE_PACKAGES';
-export const UPDATE_DATE = 'UPDATE_DATE';
+export const UPDATE_MONTHS = 'UPDATE_MONTHS';

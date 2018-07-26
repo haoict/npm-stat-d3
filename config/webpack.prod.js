@@ -2,12 +2,17 @@ const { resolve } = require('path');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const commonConfig = require('./webpack.base');
 
 module.exports = merge(commonConfig, {
   mode: 'production',
   plugins: [
+    new LodashModuleReplacementPlugin({
+      collections: true,
+      paths: true
+    }),
     new UglifyJsPlugin({
       parallel: true,
       extractComments: true

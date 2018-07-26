@@ -2,5 +2,7 @@ import { createSelector } from 'reselect';
 
 export const selectRootState = () => state => state.root;
 
-export const selectQueryParams = () =>
-  createSelector(selectRootState(), rootState => rootState.queryParams);
+export const selectPackages = () =>
+  createSelector(selectRootState(), rootState => rootState.packages);
+
+export const selectMonths = () => createSelector(selectRootState(), rootState => rootState.months);

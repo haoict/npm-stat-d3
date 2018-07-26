@@ -29,7 +29,8 @@ module.exports = {
       constants: join(clientPath, 'constants'),
       containers: join(clientPath, 'containers'),
       reducers: join(clientPath, 'reducers'),
-      selectors: join(clientPath, 'selectors')
+      selectors: join(clientPath, 'selectors'),
+      graphqlData: join(clientPath, 'graphqlData')
     }
   },
   optimization: {
