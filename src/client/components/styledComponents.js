@@ -103,3 +103,29 @@ export const GraphContainer = styled(Container)`
   height: 600px;
   width: 100%;
 `;
+
+export const ButtonList = styled(Container)`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+`;
+
+export const Button = styled(({ color, children, ...rest }) => (
+  <button {...rest}>{children}</button>
+))`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+  padding: ${spacing.small} ${spacing.medium};
+  background-color: ${({ color }) => color};
+  color: ${colors.white};
+  margin-top: ${spacing.big};
+  font-size: ${fontSizes.size7};
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: ${spacing.medium};
+  }
+`;

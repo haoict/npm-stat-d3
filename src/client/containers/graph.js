@@ -1,9 +1,9 @@
-import { compose, pure } from 'recompose';
+import { compose, pure, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import { createSelector } from 'reselect';
 import { isEmpty } from 'lodash';
-import { updateMonths } from 'actions';
+import { updateMonths, updatePackage } from 'actions';
 import { selectPackages, selectMonths } from 'selectors';
 import Graph from 'components/graph';
 import { GRAPH_DATA_QUERY } from 'graphqlData/queries';
@@ -11,7 +11,7 @@ import { GRAPH_DATA_QUERY } from 'graphqlData/queries';
 export default compose(
   connect(
     createSelector(selectPackages(), selectMonths(), (packages, months) => ({ packages, months })),
-    { updateMonths }
+    { updateMonths, updatePackage }
   ),
   graphql(GRAPH_DATA_QUERY, {
     skip: ({ packages }) => isEmpty(packages),
@@ -23,6 +23,11 @@ export default compose(
       loading,
       error
     })
+  }),
+  withHandlers({
+    removePackage: props => packageName => () => {
+      props.updatePackage(packageName);
+    }
   }),
   pure
 )(Graph);

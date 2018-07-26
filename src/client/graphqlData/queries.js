@@ -4,6 +4,7 @@ export const GRAPH_DATA_QUERY = gql`
   query getGraphData($packages: [String], $months: Int) {
     count(packages: $packages, months: $months) {
       id
+      color
       data {
         x
         y
