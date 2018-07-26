@@ -20,13 +20,56 @@
     "build": "yarn build:client && yarn build:server",
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.prod.js",
     "build:server": "babel -a -u 1 src/server/**/**/* -d build",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules -- ."
+    "lint": "eslint -c .eslintrc src/**/*.js",
+    "lint:fix": "eslint --fix -c .eslintrc src/**/*.js",
+    "test": "jest",
+    "test:dev": "jest --watch --coverage",
+    "test:coverage": "jest --coverage"
   },
-  "postcss": {},
+  "jest": {
+    "testURL": "localhost",
+    "resetMocks": true,
+    "resetModules": true,
+    "verbose": true,
+    "browser": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "moduleNameMapper": {
+      "^helper$": "<rootDir>/tests/helper.js",
+      "^mocks(.*)$": "<rootDir>/tests/mocks$1",
+      "^utils(.*)$": "<rootDir>/src/client/utils$1",
+      "^config(.*)$": "<rootDir>/src/client/configs$1",
+      "^components(.*)$": "<rootDir>/src/client/components$1",
+      "^reducers(.*)$": "<rootDir>/src/client/reducers$1",
+      "^selectors(.*)$": "<rootDir>/src/client/selectors$1",
+      "^containers(.*)$": "<rootDir>/src/client/containers$1",
+      "^stores(.*)$": "<rootDir>/src/client/stores$1",
+      "^actions(.*)$": "<rootDir>/src/client/actions$1"
+    },
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ]
+  },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
+    "babel-jest": "^23.4.0",
     "babel-loader": "7.1.4",
     "babel-plugin-lodash": "^3.3.4",
     "babel-polyfill": "6.26.0",
@@ -35,6 +78,9 @@
     "babel-preset-stage-2": "6.24.1",
     "babel-watch": "^2.0.7",
     "copyfiles": "2.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "15.0.1",
     "eslint-config-prettier": "2.3.0",
@@ -48,6 +94,7 @@
     "html-loader": "0.5.5",
     "html-webpack-harddisk-plugin": "0.2.0",
     "html-webpack-plugin": "3.2.0",
+    "jest": "^23.4.1",
     "lodash-webpack-plugin": "^0.11.5",
     "prettier": "1.12.1",
     "react-hot-loader": "^4.3.4",
