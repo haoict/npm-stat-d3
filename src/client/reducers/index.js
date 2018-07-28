@@ -3,7 +3,7 @@ import { UPDATE_PACKAGES, UPDATE_MONTHS } from 'configs/actionTypes';
 
 const initialState = {
   packages: [],
-  months: 6
+  months: 1
 };
 
 const root = (state = initialState, action) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import thunk from 'redux-thunk';
-import createStore from 'redux-mock-store/dist/index-umd';
+import createStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { shallow, mount, render } from 'enzyme';
 

@@ -7,7 +7,7 @@ import { isEmpty } from 'lodash';
 import { noRender } from 'utils';
 import PackageButtonList from './buttonList';
 
-const Graph = ({ data, packages, removePackage }) => (
+export const Graph = ({ data, packages, removePackage }) => (
   <Fragment>
     <PackageButtonList packages={packages} removePackage={removePackage} />
     <GraphContainer>
