@@ -24,6 +24,7 @@ export const Graph = ({ data, packages, cleanPackage }) => (
             strokeWidth: 0.5
           }
         }}
+        enableGridX={false}
         data={data}
         colorBy={d => d.color}
         margin={{
@@ -53,12 +54,13 @@ export const Graph = ({ data, packages, cleanPackage }) => (
           legendPosition: 'center'
         }}
         dotSize={8}
-        dotColor="inherit:darker(0.3)"
+        dotColor="inherit"
         dotBorderWidth={2}
         dotBorderColor={colors.white}
         animate
         motionStiffness={90}
         motionDamping={15}
+        areaOpacity={0.3}
       />
     </GraphContainer>
   </Fragment>
