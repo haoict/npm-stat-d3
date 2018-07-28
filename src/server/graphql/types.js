@@ -24,7 +24,8 @@ const DownloadType = new GraphQLObjectType({
   name: 'DownloadType',
   fields: () => ({
     x: { type: GraphQLString },
-    y: { type: GraphQLInt }
+    y: { type: GraphQLInt },
+    color: { type: GraphQLString }
   })
 });
 

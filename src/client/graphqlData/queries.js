@@ -8,6 +8,7 @@ export const GRAPH_DATA_QUERY = gql`
       data {
         x
         y
+        color
       }
     }
   }

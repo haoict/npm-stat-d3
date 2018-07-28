@@ -85,19 +85,21 @@ const dataByMonth = data => {
   return months;
 };
 
-const mapDownload = (data, months = 1) => {
+const mapDownload = (data, months = 1, color) => {
   if (months > 1) {
     const mappedData = dataByMonth(data);
 
     return map(mappedData, (value, key) => ({
       x: key,
-      y: value
+      y: value,
+      color
     }));
   }
 
   return map(data, ({ day, downloads }) => ({
     x: format(day, DATE_FORMAT),
-    y: downloads
+    y: downloads,
+    color
   }));
 };
 
@@ -112,7 +114,7 @@ const mapCountData = (data, months) => {
       {
         id: data.package,
         color: graphColors[0],
-        data: mapDownload(data.downloads, months)
+        data: mapDownload(data.downloads, months, graphColors[0])
       }
     ];
   }
@@ -126,7 +128,7 @@ const mapCountData = (data, months) => {
     return {
       id: key,
       color,
-      data: mapDownload(value.downloads, months)
+      data: mapDownload(value.downloads, months, color)
     };
   });
 };

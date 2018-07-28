@@ -1,20 +1,11 @@
 import { connect } from 'react-redux';
-import { compose, pure, withState, withHandlers } from 'recompose';
-import { updatePackage } from 'actions';
+import { compose, pure } from 'recompose';
+import { createSelector } from 'reselect';
+import { updatePackages } from 'actions';
+import { selectPackages } from 'selectors';
 import SearchForm from 'components/searchForm';
 
 export default compose(
-  connect(null, { updatePackage }),
-  withState('inputValue', 'updateInputValue', ''),
-  withHandlers({
-    onChange: ({ updateInputValue }) => e => {
-      updateInputValue(e.target.value);
-    },
-    onSubmit: props => e => {
-      e.preventDefault();
-      props.updatePackage(props.inputValue);
-      props.updateInputValue('');
-    }
-  }),
+  connect(createSelector(selectPackages(), packages => ({ packages })), { updatePackages }),
   pure
 )(SearchForm);

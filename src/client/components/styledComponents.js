@@ -117,15 +117,20 @@ export const Button = styled(({ color, children, ...rest }) => (
   align-items: center;
   justify-content: center;
   box-shadow: none;
-  border: none;
+  border: 2px solid ${({ color }) => color};
   padding: ${spacing.small} ${spacing.medium};
-  background-color: ${({ color }) => color};
-  color: ${colors.white};
+  background-color: ${colors.white};
+  color: ${({ color }) => color};
   margin-top: ${spacing.big};
-  font-size: ${fontSizes.size7};
+  font-size: ${fontSizes.size6};
+  border-radius: 4px;
   cursor: pointer;
 
   &:not(:last-child) {
     margin-right: ${spacing.medium};
+  }
+
+  svg {
+    margin-left: ${spacing.medium};
   }
 `;

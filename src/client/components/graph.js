@@ -1,32 +1,45 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
+import { compose, pure, setPropTypes, withHandlers } from 'recompose';
 import { GraphContainer } from 'components/styledComponents';
-import { compose, pure, setPropTypes } from 'recompose';
 import { isEmpty } from 'lodash';
-import { noRender } from 'utils';
+import { noRender, removePackage } from 'utils';
+import { colors, fontSizes } from 'configs/styles';
 import PackageButtonList from './buttonList';
 
-export const Graph = ({ data, packages, removePackage }) => (
+export const Graph = ({ data, packages, cleanPackage }) => (
   <Fragment>
-    <PackageButtonList packages={packages} removePackage={removePackage} />
+    <PackageButtonList packages={packages} removePackage={cleanPackage} />
     <GraphContainer>
       <ResponsiveLine
+        theme={{
+          axis: {
+            textColor: colors.lime,
+            fontSize: fontSizes.size7,
+            tickColor: colors.red
+          },
+          grid: {
+            stroke: colors.gray,
+            strokeWidth: 0.5
+          }
+        }}
         data={data}
+        colorBy={d => d.color}
         margin={{
           top: 50,
-          right: 200,
+          right: 25,
           bottom: 50,
           left: 100
         }}
         minY="auto"
-        stacked
+        stacked={false}
         axisBottom={{
           orient: 'bottom',
           tickSize: 3,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Package name',
+          legend: 'Date',
           legendOffset: 40,
           legendPosition: 'center'
         }}
@@ -39,23 +52,13 @@ export const Graph = ({ data, packages, removePackage }) => (
           legendOffset: -80,
           legendPosition: 'center'
         }}
+        dotSize={8}
         dotColor="inherit:darker(0.3)"
         dotBorderWidth={2}
-        dotBorderColor="#ffffff"
+        dotBorderColor={colors.white}
         animate
         motionStiffness={90}
         motionDamping={15}
-        legends={[
-          {
-            anchor: 'top-right',
-            direction: 'column',
-            translateX: 100,
-            itemWidth: 80,
-            itemHeight: 20,
-            symbolSize: 12,
-            symbolShape: 'square'
-          }
-        ]}
       />
     </GraphContainer>
   </Fragment>
@@ -63,8 +66,15 @@ export const Graph = ({ data, packages, removePackage }) => (
 
 export default compose(
   setPropTypes({
-    data: PropTypes.array
+    data: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
   }),
   noRender(({ data }) => isEmpty(data)),
+  withHandlers({
+    cleanPackage: ({ packages, history, updatePackages }) => npmPackage => () => {
+      const newPackages = removePackage(packages, npmPackage);
+      history.push(`/${newPackages.join('-vs-')}`);
+      updatePackages(newPackages);
+    }
+  }),
   pure
 )(Graph);
