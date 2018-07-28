@@ -27,7 +27,7 @@ export default compose(
     },
     onSubmit: ({ packages, inputValue, updatePackages, history, updateInputValue }) => e => {
       e.preventDefault();
-
+      if (isEmpty(inputValue)) return;
       const newPackages = addPackage(packages, inputValue);
       updatePackages(newPackages);
       history.push(`/${newPackages.join('-vs-')}`);
